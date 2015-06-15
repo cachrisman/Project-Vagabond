@@ -1,6 +1,5 @@
-<h1>Log posts go here</h1>
-
 <div>
+	<h3>Log posts go here</h3>
 	<ul>
 		<% user_log_posts.each do |x| %>
 			<li><a href='<%=log_post_path(x.id)%>'><%= x.title %></a></li>
