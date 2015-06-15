@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'sessions/new'
+
+  get 'sessions/create'
+
+  get 'sessions/destroy'
+
   resources :log_posts
   resources :users
   # The priority is based upon order of creation: first created -> highest priority.
