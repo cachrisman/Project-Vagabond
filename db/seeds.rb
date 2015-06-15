@@ -16,6 +16,6 @@ require 'ffaker'
 		new_log_post.body = FFaker::HipsterIpsum.paragraphs(1 + rand(2)).join("\n")
 		new_log_post.city = "San Francisco"
 		new_log_post.save
-		new_log_ << new_log_post
+		new_user.log_posts << new_log_post
 	end
 end
