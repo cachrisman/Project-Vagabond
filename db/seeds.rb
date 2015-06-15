@@ -7,13 +7,14 @@ require 'ffaker'
 	user_params[:last_name] = FFaker::Name.last_name
 	user_params[:password] = "fakedata"
 	user_params[:password_confirmation] = user_params[:password]
-	user_params[:city] = FFaker::AddressUS.city
+	user_params[:city] = "San Francisco"
 	new_user = User.create(user_params)
 
 	(1..10).each do
 		new_log_post = LogPost.new
 		new_log_post.title = FFaker::HipsterIpsum.words(rand(8)+2).join(" ")
 		new_log_post.body = FFaker::HipsterIpsum.paragraphs(1 + rand(2)).join("\n")
+		new_log_post.city = "San Francisco"
 		new_log_post.save
 		new_log_ << new_log_post
 	end
