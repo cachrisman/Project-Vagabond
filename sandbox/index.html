@@ -2,9 +2,40 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <!— JQuery —>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script> 
+  <!— Bootstrap —>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
   <title>Splash Page</title>
 </head>
 <body>
-<iframe src="https://player.vimeo.com/video/71319358?autoplay=1&title=0&byline=0&portrait=0&badge=0" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>  
+  <div id="main-container" class="container">
+    <div class="row">
+      <div id="hero-image" class="col-md-6 col-md-offset-2">
+<iframe src="https://player.vimeo.com/video/71319358?autoplay=1&title=0&byline=0&portrait=0&badge=0" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+      </div>
+    </div>
+    <div class="row">
+      <form class="form-signin col-md-5 col-md-offset-2">
+        <h2 class="form-signin-heading">Please sign in</h2>
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+        <!-- <div class="checkbox"> -->
+        <!--   <label> -->
+        <!--     <input type="checkbox" value="remember-me"> Remember me -->
+        <!--   </label> -->
+        <!-- </div> -->
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+      </form>
+    </div> <!-- /form-signin -->
+    <div class="row">
+      <div class="sign-up col-md-5 col-md-offset-2">
+        <h4>Don't have an account? <a ref=""> Sign Up!</a></h4>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
