@@ -12,5 +12,4 @@ module UsersHelper
 		user.log_posts
 	end
 
-
 end
