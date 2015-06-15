@@ -69,6 +69,6 @@ class LogPostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def log_post_params
-      params.require(:log_post).permit(:title, :body, :user_id)
+      params.require(:log_post).permit(:title, :body, :user_id, :city)
     end
 end

@@ -8,6 +8,7 @@
       <th>Title</th>
       <th>Body</th>
       <th>User</th>
+      <th>City</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -18,6 +19,7 @@
         <td><%= log_post.title %></td>
         <td><%= log_post.body %></td>
         <td><%= log_post.user %></td>
+        <td><%= log_post.city %></td>
         <td><%= link_to 'Show', log_post %></td>
         <td><%= link_to 'Edit', edit_log_post_path(log_post) %></td>
         <td><%= link_to 'Destroy', log_post, method: :delete, data: { confirm: 'Are you sure?' } %></td>

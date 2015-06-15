@@ -18,7 +18,7 @@ class LogPostsControllerTest < ActionController::TestCase
 
   test "should create log_post" do
     assert_difference('LogPost.count') do
-      post :create, log_post: { body: @log_post.body, title: @log_post.title, user_id: @log_post.user_id }
+      post :create, log_post: { body: @log_post.body, city: @log_post.city, title: @log_post.title, user_id: @log_post.user_id }
     end
 
     assert_redirected_to log_post_path(assigns(:log_post))
@@ -35,7 +35,7 @@ class LogPostsControllerTest < ActionController::TestCase
   end
 
   test "should update log_post" do
-    patch :update, id: @log_post, log_post: { body: @log_post.body, title: @log_post.title, user_id: @log_post.user_id }
+    patch :update, id: @log_post, log_post: { body: @log_post.body, city: @log_post.city, title: @log_post.title, user_id: @log_post.user_id }
     assert_redirected_to log_post_path(assigns(:log_post))
   end
 
