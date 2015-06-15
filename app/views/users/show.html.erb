@@ -1,14 +1,22 @@
 <p id="notice"><%= notice %></p>
 
+<div>
+  <%= gravatar_for @user %>
+</div>
+<div>
+  <strong>Name:</strong>
+  <%= @user.first_name %> <%= @user.last_name %>
+</div>
+<!--
 <p>
   <strong>First name:</strong>
   <%= @user.first_name %>
-</p>
+</p> -->
 
-<p>
+<!-- <p>
   <strong>Last name:</strong>
   <%= @user.last_name %>
-</p>
+</p> -->
 
 <p>
   <strong>Email:</strong>
@@ -18,6 +26,11 @@
 <p>
   <strong>City:</strong>
   <%= @user.city %>
+</p>
+
+<p>
+  <strong>Join Date:</strong>
+  <%= @user.created_at.to_date %>
 </p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |
