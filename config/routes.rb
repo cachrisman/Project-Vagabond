@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
 
-  get 'sessions/create'
+  root to: "site#index"
+  get "/about", to: "site#about", as: "about"
+  get "/contact", to: "site#contact", as: "contact"
 
-  get 'sessions/destroy'
+  get '/login', to: "sessions#new"
+  post "/sessions", to: "sessions#create"
+  get '/logout', to: "sessions#logout"
+  get "/signup", to: "users#new"
 
   resources :log_posts
   resources :users
