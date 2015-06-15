@@ -1,0 +1,2 @@
+module LogPostsHelper
+end

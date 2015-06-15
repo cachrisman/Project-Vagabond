@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @log_post.title %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @log_post.body %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @log_post.user %>
+</p>
+
+<%= link_to 'Edit', edit_log_post_path(@log_post) %> |
+<%= link_to 'Back', log_posts_path %>
