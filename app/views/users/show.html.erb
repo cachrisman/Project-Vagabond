@@ -21,8 +21,10 @@
   <%= @user.created_at.to_date %>
 </p>
 
+<% if current_user == @user %>
+	<%= link_to 'Edit', edit_user_path(@user) %>
+<% end %>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
 
 <%= render "log_posts" %>

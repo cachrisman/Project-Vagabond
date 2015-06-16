@@ -19,8 +19,10 @@
         <td><%= log_post.user %></td>
         <td><%= log_post.city %></td>
         <td><%= link_to 'Show', log_post %></td>
-        <td><%= link_to 'Edit', edit_log_post_path(log_post) %></td>
-        <td><%= link_to 'Destroy', log_post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if current_user.id == log_post.user_id %>
+          <td><%= link_to 'Edit', edit_log_post_path(log_post) %></td>
+          <td><%= link_to 'Destroy', log_post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

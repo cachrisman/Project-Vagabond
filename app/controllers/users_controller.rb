@@ -21,6 +21,12 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    if current_user == @user
+      render :edit
+    else
+      flash[:warning] = "Sorry, you can only edit your own profile"
+      redirect_to @user
+    end
   end
 
   # POST /users
