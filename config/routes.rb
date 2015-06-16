@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'cities/index'
+
+  get 'cities/show'
+
   root to: "sessions#new"
   get '/login', to: "sessions#new"
 
