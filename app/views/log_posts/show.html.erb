@@ -17,7 +17,7 @@
 
 <p>
   <strong>City:</strong>
-  <%= @log_post.city %>
+  <%= @log_post.city.name %>
 </p>
 
 <% if current_user.id == @log_post.user_id %>
