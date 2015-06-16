@@ -11,10 +11,6 @@
 
   <%= render 'layouts/header' %>
 
-  <% flash.each do |name, msg| %>
-    <%= content_tag :div, msg, class: name, id: name %>
-  <% end %>
-
   <div class="container-fluid">
 
 
@@ -27,5 +23,6 @@
   	<%= console %>
 
   </div>
+
 </body>
 </html>

@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
 
-  root to: "site#index"
+  root to: "sessions#new"
+  get '/login', to: "sessions#new"
+  
   get "/about", to: "site#about", as: "about"
   get "/contact", to: "site#contact", as: "contact"
 
-  get '/login', to: "sessions#new"
   post "/sessions", to: "sessions#create"
   get '/logout', to: "sessions#logout"
   get "/signup", to: "users#new"
