@@ -1,19 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html lang='en'>
 <head>
   <title>ProjectVagabond</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-<% flash.each do |name, msg| %>
-  <%= content_tag :div, msg, class: name, id: name %>
-<% end %>
+<div class="container-fluid">
 
-<%= yield %>
+	<% flash.each do |name, msg| %>
+	  <%= content_tag :div, msg, class: name, id: name %>
+	<% end %>
 
-<%= console %>
+	<%= yield %>
 
+</div>
 </body>
 </html>
