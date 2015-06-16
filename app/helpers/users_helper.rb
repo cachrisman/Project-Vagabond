@@ -8,7 +8,7 @@ module UsersHelper
   end
 
 	def user_log_posts
-		user = User.find(params[:id])
+		user = User.find(@user.id)
 		user.log_posts
 	end
 
