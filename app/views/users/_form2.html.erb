@@ -21,7 +21,7 @@
   </div>
   <div class="field form-group">
     <%= f.label :city %><br>
-    <%= f.text_field :city, class: 'form-control' %>
+    <%= f.text_field :city, class: 'form-control', autocomplete: "on", id: "city_search_field" %>
   </div>
 
   <br>
@@ -30,3 +30,22 @@
     <%= f.submit "Update Profile", class: "btn btn-primary" %>
   </div>
 <% end %>
+
+<script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places" type="text/javascript"></script>
+<script type="text/javascript">
+    var autocomplete;
+    var place;
+    function initialize()
+    {
+      var options       = {types: ['(cities)']};
+      var input         = document.getElementById('city_search_field');
+      autocomplete  = new google.maps.places.Autocomplete(input, options);
+      google.maps.event.addListener(autocomplete, 'place_changed', function() {
+        $('#city_search_field').val(autocomplete.getPlace().name);
+      });
+    }
+
+    google.maps.event.addDomListener(window, 'load', initialize);
+</script>
+
+
