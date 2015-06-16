@@ -19,6 +19,11 @@ class LogPostsController < ApplicationController
 
   # GET /log_posts/1/edit
   def edit
+    if current_user.id == @log_post.user_id
+      render :edit
+    else 
+      redirect_to @log_post
+    end
   end
 
   # POST /log_posts

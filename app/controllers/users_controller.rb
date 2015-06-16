@@ -21,6 +21,11 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    if current_user == @user
+      render :edit
+    else
+      redirect_to @user
+    end
   end
 
   # POST /users
