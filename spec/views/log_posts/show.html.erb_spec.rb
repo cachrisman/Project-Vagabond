@@ -27,9 +27,9 @@ RSpec.describe "log_posts/show", type: :view do
     render
     expect(rendered).to match (/Title/)
     expect(rendered).to match (/MyText/)
-    expect(rendered).to match @user.first_name
-    expect(rendered).to match @user.last_name
-    expect(rendered).to match @log_post.city.name
+    expect(rendered).to match (/#{@user.first_name}/)
+    expect(rendered).to match (/#{@user.last_name}/)
+    expect(rendered).to match (/#{@log_post.city.name}/)
   end
 
 end
