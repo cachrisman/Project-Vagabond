@@ -12,3 +12,9 @@ rails g migration AddCityReferenceToUser city:references
 rails g migration RemoveCityFromUser city:string
 rails g migration AddCityReferenceToLogPost city:references
 rails g migration RemoveCityFromLogPost city:string
+
+rails generate rspec:install
+rails g rspec:scaffold User first_name:string last_name:string email:string:uniq password:digest city:references
+rails g rspec:scaffold LogPost title:string body:text user:references city:references
+rails g rspec:controller Sessions new create
+rails g rspec:controller Site index about contact
