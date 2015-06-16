@@ -1,0 +1,30 @@
+<%= form_for(@log_post) do |f| %>
+  <% if @log_post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@log_post.errors.count, "error") %> prohibited this log_post from being saved:</h2>
+
+      <ul>
+      <% @log_post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field form-group">
+    <%= f.label :title %><br>
+    <%= f.text_field :title, class: 'form-control' %>
+  </div>
+  <div class="field form-group">
+    <%= f.label :city %><br>
+    <%= f.text_field :city, class: 'form-control' %>
+  </div>
+  <div class="field form-group">
+    <%= f.label :body %><br>
+    <%= f.text_area :body, :class => "form-control tinymce", :rows => 20, :cols => 30 %>
+    <%= tinymce %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,30 @@
+<div>
+  <%= gravatar_for @user %>
+</div>
+<div>
+  <strong>Name:</strong>
+  <%= @user.first_name %> <%= @user.last_name %>
+</div>
+
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @user.city %>
+</p>
+
+<p>
+  <strong>Join Date:</strong>
+  <%= @user.created_at.to_date %>
+</p>
+
+<% if current_user == @user %>
+	<%= link_to 'Edit', edit_user_path(@user) %>
+<% end %>
+
+<%= link_to 'Back', users_path %>
+
+<%= render "log_posts" %>
