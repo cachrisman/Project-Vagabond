@@ -13,6 +13,8 @@ RSpec.describe User, type: :model do
         }
 
       @user = User.create(@params)
+      login(@user)
+      p current_user
     end
 
     it "has a well formatted email with an @ symbol" do
