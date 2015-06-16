@@ -3,20 +3,21 @@ require 'rails_helper'
 RSpec.describe "cities/show.html.erb", type: :view do
     before(:all) do
     @city = City.create({
-      name: "San Francisco"
+      :name => "San Francisco",
+      :continent => "North America"
     })
     @user = User.create({
       :first_name => "Charlie",
       :last_name => "Chrisman",
       :email => "charlie@chrisman.com",
       :password => "bad",
-      :city_id => 1
+      :city => @city
     })
     @logpost = LogPost.create({
-      title: "test post title",
-      body: "test post body",
-      user: @user,
-      city: @city
+      :title => "test post title",
+      :body => "test post body",
+      :user => @user,
+      :city => @city
     })
   end
 
