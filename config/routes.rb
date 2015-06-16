@@ -2,14 +2,15 @@ Rails.application.routes.draw do
 
   root to: "sessions#new"
   get '/login', to: "sessions#new"
-  
-  get "/about", to: "site#about", as: "about"
-  get "/contact", to: "site#contact", as: "contact"
+
+  get "/about", to: "site#about"
+  get "/contact", to: "site#contact"
 
   post "/sessions", to: "sessions#create"
   get '/logout', to: "sessions#logout"
   get "/signup", to: "users#new"
 
+  # get '/cities/:city_id/log_posts', to: "cities#show", as: "city_log_posts"
   resources :log_posts
   resources :users
   # The priority is based upon order of creation: first created -> highest priority.
