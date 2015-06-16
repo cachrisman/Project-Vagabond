@@ -8,6 +8,8 @@ RSpec.describe "log_posts/show", type: :view do
       :user_id => 1,
       :city_id => 1
     ))
+    @city = City.new
+    @city.name = "San Francisco"
     @user = assign(:user, User.create!(
                      :first_name => "Alex",
                      :last_name => "Kelley",
@@ -23,11 +25,11 @@ RSpec.describe "log_posts/show", type: :view do
 
   it "renders all attributes in <p>" do
     render
-    expect(rendered).to match "Title"
-    expect(rendered).to match "MyText"
+    expect(rendered).to match (/Title/)
+    expect(rendered).to match (/MyText/)
     expect(rendered).to match @user.first_name
     expect(rendered).to match @user.last_name
-    expect(rendered).to match "#{@log_post.city_id}"
+    expect(rendered).to match @logpost.city_id.name
   end
 
 end
