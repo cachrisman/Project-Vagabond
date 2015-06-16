@@ -11,17 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150615210127) do
+ActiveRecord::Schema.define(version: 20150616170346) do
+
+  create_table "cities", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "log_posts", force: :cascade do |t|
     t.string   "title"
     t.text     "body"
     t.integer  "user_id"
-    t.string   "city"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "city_id"
   end
 
+  add_index "log_posts", ["city_id"], name: "index_log_posts_on_city_id"
   add_index "log_posts", ["user_id"], name: "index_log_posts_on_user_id"
 
   create_table "users", force: :cascade do |t|
@@ -29,11 +36,12 @@ ActiveRecord::Schema.define(version: 20150615210127) do
     t.string   "last_name"
     t.string   "email"
     t.string   "password_digest"
-    t.string   "city"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.integer  "city_id"
   end
 
+  add_index "users", ["city_id"], name: "index_users_on_city_id"
   add_index "users", ["email"], name: "index_users_on_email", unique: true
 
 end
