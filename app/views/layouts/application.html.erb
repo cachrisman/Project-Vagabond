@@ -8,14 +8,21 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div class="container-fluid">
 
-	<% flash.each do |name, msg| %>
-	  <%= content_tag :div, msg, class: name, id: name %>
-	<% end %>
+  <%= render 'layouts/header' %>
 
-	<%= yield %>
+  <div class="container-fluid">
 
-</div>
+
+  	<% flash.each do |name, msg| %>
+  	  <%= content_tag :div, msg, class: name, id: name %>
+  	<% end %>
+
+  	<%= yield %>
+
+  	<%= console %>
+
+  </div>
+
 </body>
 </html>
