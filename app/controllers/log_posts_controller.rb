@@ -20,6 +20,12 @@ class LogPostsController < ApplicationController
 
   # GET /log_posts/1/edit
   def edit
+    if current_user.id == @log_post.user_id
+      render :edit
+    else 
+      flash[:warning] = "Sorry, you can only edit your own posts"
+      redirect_to @log_post
+    end
   end
 
   # POST /log_posts
