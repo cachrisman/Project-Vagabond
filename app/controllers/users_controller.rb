@@ -24,6 +24,7 @@ class UsersController < ApplicationController
     if current_user == @user
       render :edit
     else
+      flash[:warning] = "Sorry, you can only edit your own profile"
       redirect_to @user
     end
   end
