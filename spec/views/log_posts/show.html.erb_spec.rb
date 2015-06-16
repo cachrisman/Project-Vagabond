@@ -2,14 +2,14 @@ require 'rails_helper'
 
 RSpec.describe "log_posts/show", type: :view do
   before(:each) do
+    city = City.new
+    city.name = "San Francisco"
     @log_post = assign(:log_post, LogPost.create!(
       :title => "Title",
       :body => "MyText",
       :user_id => 1,
-      :city_id => 1
+      :city => city
     ))
-    @city = City.new
-    @city.name = "San Francisco"
     @user = assign(:user, User.create!(
                      :first_name => "Alex",
                      :last_name => "Kelley",
@@ -29,7 +29,7 @@ RSpec.describe "log_posts/show", type: :view do
     expect(rendered).to match (/MyText/)
     expect(rendered).to match @user.first_name
     expect(rendered).to match @user.last_name
-    expect(rendered).to match @logpost.city_id.name
+    expect(rendered).to match @log_post.city.name
   end
 
 end
