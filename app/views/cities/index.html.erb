@@ -1,4 +1,12 @@
-<h1>Cities#index</h1>
-<p>Find me in app/views/cities/index.html.erb</p>
+<h1>Check out our cities!</h1>
 
-
+<% continents.each do |city| %>
+	<div class='col-lg-4 continent'>
+		<h3><%= city.continent %></h3>
+		<ul class="cities">
+			<% cities_in_continent(city.continent).each do |x| %>
+				<li><a href='<%= city_path(x.id)%>'><%= x.name %></a></li>
+			<% end %>
+		</ul>
+	</div>
+<% end %>
