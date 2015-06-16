@@ -12,16 +12,8 @@
   <%= render 'layouts/header' %>
 
   <div class="container-fluid">
-
-
-  	<% flash.each do |name, msg| %>
-  	  <%= content_tag :div, msg, class: name, id: name %>
-  	<% end %>
-
+    <%= render partial: "layouts/flash", flash: flash %>
   	<%= yield %>
-
-  	<%= console %>
-
   </div>
 
 </body>
