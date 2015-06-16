@@ -11,7 +11,7 @@ module SessionsHelper
   end
 
   def logged_in?
-    if current_user == nil
+    if current_user == false
       return false
     else
       return true
