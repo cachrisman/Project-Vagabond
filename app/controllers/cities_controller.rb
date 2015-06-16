@@ -6,6 +6,7 @@ class CitiesController < ApplicationController
 
   def show
   	@city = City.find(params[:id])
+    @image_path = "#{params[:id]}.jpg"
   	render :show
   end
 end
