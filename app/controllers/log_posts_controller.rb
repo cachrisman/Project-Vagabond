@@ -15,6 +15,7 @@ class LogPostsController < ApplicationController
   # GET /log_posts/new
   def new
     @log_post = LogPost.new
+    @log_post.city = current_user.city
   end
 
   # GET /log_posts/1/edit
