@@ -1,12 +1,12 @@
 <h1>Check out our cities!</h1>
 
 <% continents.each do |city| %>
-	<div>
-		<h2><%= city.continent %></h2>
-	</div>
-	<% cities_in_continent(city.continent).each do |x| %>
-		<ul>
-			<li><a href='<%= city_path(x.id)%>'><%= x.name %></a></li>
+	<div class='col-lg-4 continent'>
+		<h3><%= city.continent %></h3>
+		<ul class="cities">
+			<% cities_in_continent(city.continent).each do |x| %>
+				<li><a href='<%= city_path(x.id)%>'><%= x.name %></a></li>
+			<% end %>
 		</ul>
-	<% end %>
+	</div>
 <% end %>
