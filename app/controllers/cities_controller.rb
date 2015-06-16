@@ -1,6 +1,7 @@
 class CitiesController < ApplicationController
-  def index
-  	@cities = City.all
+  include CitiesHelper
+
+	def index
   	render :index
   end
 
