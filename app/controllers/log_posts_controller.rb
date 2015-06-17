@@ -65,10 +65,16 @@ class LogPostsController < ApplicationController
   # DELETE /log_posts/1
   # DELETE /log_posts/1.json
   def destroy
-    @log_post.destroy
-    respond_to do |format|
-      format.html { redirect_to log_posts_url, notice: 'Log post was successfully destroyed.' }
-      format.json { head :no_content }
+    if current_user.id == @log_post.user_id
+      @log_post.destroy
+      respond_to do |format|
+        #format.html { redirect_to log_posts_url, notice: 'Log post was successfully destroyed.' }
+        format.html { redirect_to :back, notice: 'Log post was successfully destroyed.' }
+        format.json { head :no_content }
+      end
+    else 
+      flash[:warning] = "Sorry, you can only delete your own posts"
+      redirect_to :back
     end
   end
 
