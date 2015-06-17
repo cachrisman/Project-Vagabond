@@ -3,7 +3,6 @@ class CitiesController < ApplicationController
   before_filter :redirect_unauthenticated
 
 	def index
-    render :index
   end
 
   def show
