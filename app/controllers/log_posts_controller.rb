@@ -76,6 +76,13 @@ class LogPostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def log_post_params
-      params.require(:log_post).permit(:title, :body, :user_id, :city)
+      city = City.find_by_name(params[:log_post][:city])
+      if city == nil
+        city = City.create({name: params[:log_post][:city]})
+      end
+      @post_params = {}
+      @post_params = params.require(:log_post).permit(:title, :body, :user_id)
+      @post_params[:city_id] = city.id
+      return @post_params
     end
 end
