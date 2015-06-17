@@ -17,7 +17,7 @@
   </div>
   <div class="field form-group">
     <%= f.label :city %><br>
-    <%= f.text_field :city, class: 'form-control', autocomplete: "on", id: "city_search_field" %>
+    <%= f.text_field :city, class: 'form-control', value: @log_post.city.try(:name), autocomplete: "on", id: "city_search_field" %>
   </div>
   <div class="field form-group">
     <%= f.label :body %><br>
