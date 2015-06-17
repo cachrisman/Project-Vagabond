@@ -49,10 +49,6 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
-    city = City.find_by_name(params[:user][:city])
-    if city == nil
-      city = City.create({name: params[:user][:city]})
-    end
     @user.city = city
     respond_to do |format|
       if @user.update(user_params)
