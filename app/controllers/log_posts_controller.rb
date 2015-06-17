@@ -25,6 +25,7 @@ class LogPostsController < ApplicationController
 
   def create
     @log_post = LogPost.new(log_post_params)
+    @log_post.city = current_user.city 
 
     respond_to do |format|
       if @log_post.save
