@@ -5,6 +5,10 @@
   <%= @log_post.title %>
 </p>
 
+<p class="timestamp">
+  Published: <%= time_ago_in_words(@log_post.created_at) %> ago
+</p>
+
 <p>
   <strong>Body:</strong>
   <%= @log_post.body %>
