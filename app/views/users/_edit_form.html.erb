@@ -19,7 +19,7 @@
     <%= f.label :last_name %><br>
     <%= f.text_field :last_name, class: 'form-control' %>
   </div>
-  <%= render partial: "layouts/city", locals: {f: f} %>
+  <%= render partial: "layouts/city", locals: {f: f, item:@user} %>
   <br>
   <div class="actions">
     <%= f.submit "Update Profile", class: "btn btn-primary" %>
