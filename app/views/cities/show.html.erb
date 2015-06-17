@@ -1,3 +1,14 @@
 <h1><%= @city.name %></h1>
 
 <%= image_tag @image_path, {height: 300} %>
+
+<div>
+  <%= @log_posts.each_with_index do |post, index| %>
+  <div id="log-post">
+  <%= gravatar_for @users[index] %>
+  <%= post.updated_at %>
+  <%= post.title %>
+  <%= post.body.slice(0, 140) %>
+  </div>
+  <% end %>
+</div>
