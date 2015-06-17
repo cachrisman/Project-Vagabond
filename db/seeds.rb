@@ -1,4 +1,11 @@
 require 'ffaker'
+def rand_in_range(from, to)
+  rand * (to - from) + from
+end
+
+def rand_time(from, to=Time.now)
+  Time.at(rand_in_range(from.to_f, to.to_f))
+end
 
 (1..10).each do
 
@@ -14,13 +21,31 @@ require 'ffaker'
 		user_params[:city_id] = new_city.id
 		new_user = User.create(user_params)
 
+                r = Random.new
 		(1..5).each do
 			new_log_post = LogPost.new
 			new_log_post.title = FFaker::HipsterIpsum.words(rand(8)+2).join(" ")
 			new_log_post.body = FFaker::HipsterIpsum.paragraphs(1 + rand(2)).join("\n")
 			new_log_post.city_id = new_city.id
 			new_log_post.save
+                        new_log_post.updated_at = rand_time(2.days.ago) #rand_time(rand_in_range(1, 100).days.ago)
+                        new_log_post.save
 			new_user.log_posts << new_log_post
 		end
 	end
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
