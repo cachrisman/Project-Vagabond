@@ -7,6 +7,8 @@ class LogPostsController < ApplicationController
   end
 
   def show
+    @post = LogPost.find(params[:id])
+    @posts = LogPost.includes(:title, :body).order("created_at DESC").limit(10)
   end
 
   def new
@@ -17,7 +19,7 @@ class LogPostsController < ApplicationController
   def edit
     if current_user.id == @log_post.user_id
       render :edit
-    else 
+    else
       flash[:warning] = "Sorry, you can only edit your own posts"
       redirect_to @log_post
     end
@@ -57,7 +59,7 @@ class LogPostsController < ApplicationController
         format.html { redirect_to :back, notice: 'Log post was successfully destroyed.' }
         format.json { head :no_content }
       end
-    else 
+    else
       flash[:warning] = "Sorry, you can only delete your own posts"
       redirect_to :back
     end
@@ -75,7 +77,7 @@ class LogPostsController < ApplicationController
       if city == nil
         city = City.create({name: params[:log_post][:city]})
       end
-      
+
       @post_params = {}
       @post_params = params.require(:log_post).permit(:title, :body, :user_id)
       @post_params[:city_id] = city.id

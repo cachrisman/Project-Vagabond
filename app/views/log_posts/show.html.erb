@@ -1,31 +1,35 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @log_post.title %>
-</p>
+<% @posts.each do |post| %>
 
-<p class="timestamp">
-  Published: <%= time_ago_in_words(@log_post.created_at) %> ago
-</p>
+  <p>
+    <strong>Title:</strong>
+    <%= @log_post.title %>
+  </p>
 
-<p>
-  <strong>Body:</strong>
-  <%= @log_post.body %>
-</p>
+  <p class="timestamp">
+    Published: <%= time_ago_in_words(@log_post.created_at) %> ago
+  </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @log_post.user.try(:first_name) %> <%= @log_post.user.try(:last_name) %>
-</p>
+  <p>
+    <strong>Body:</strong>
+    <%= @log_post.body %>
+  </p>
 
-<p>
-  <strong>City:</strong>
-  <%= @log_post.city.try(:name) %>
-</p>
+  <p>
+    <strong>User:</strong>
+    <%= @log_post.user.try(:first_name) %> <%= @log_post.user.try(:last_name) %>
+  </p>
 
-<% if current_user.id == @log_post.user_id %>
-	<%= link_to 'Edit', edit_log_post_path(@log_post) %>
+  <p>
+    <strong>City:</strong>
+    <%= @log_post.city.try(:name) %>
+  </p>
+
+  <% if current_user.id == @log_post.user_id %>
+  	<%= link_to 'Edit', edit_log_post_path(@log_post) %>
+  <% end %>
+
+  <%= link_to 'Back', log_posts_path %>
+
 <% end %>
-
-<%= link_to 'Back', log_posts_path %>
