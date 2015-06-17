@@ -1,16 +1,13 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_filter :redirect_unauthenticated, except: [:new, :create]
 
-  # GET /users
-  # GET /users.json
   def index
     @user = current_user
     return redirect_to @user if @user
     redirect_to login_path
   end
 
-  # GET /users/1
-  # GET /users/1.json
   def show
     @user = User.find(params[:id])
     render :show

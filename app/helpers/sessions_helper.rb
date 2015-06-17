@@ -23,4 +23,11 @@ module SessionsHelper
     redirect_to root_path
   end
 
+  def redirect_unauthenticated
+    unless logged_in?
+      flash[:alert] = "Sorry, you must be logged in to see this content"
+      return redirect_to login_path
+    end
+  end
+
 end
