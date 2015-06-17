@@ -1,8 +1,8 @@
 class CitiesController < ApplicationController
   include CitiesHelper
+  before_filter :redirect_unauthenticated
 
 	def index
-  	render :index
   end
 
   def show

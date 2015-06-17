@@ -1,28 +1,19 @@
 class LogPostsController < ApplicationController
   before_action :set_log_post, only: [:show, :edit, :update, :destroy]
+  before_filter :redirect_unauthenticated
 
-  # GET /log_posts
-  # GET /log_posts.json
   def index
     @log_posts = LogPost.all
   end
 
-  # GET /log_posts/1
-  # GET /log_posts/1.json
   def show
   end
 
-  # GET /log_posts/new
   def new
-    if logged_in?
-      @log_post = LogPost.new
-      @log_post.city = current_user.city
-    else 
-      redirect_to login_path
-    end
+    @log_post = LogPost.new
+    @log_post.city = current_user.city
   end
 
-  # GET /log_posts/1/edit
   def edit
     if current_user.id == @log_post.user_id
       render :edit
@@ -32,8 +23,6 @@ class LogPostsController < ApplicationController
     end
   end
 
-  # POST /log_posts
-  # POST /log_posts.json
   def create
     @log_post = LogPost.new(log_post_params)
 
@@ -48,8 +37,6 @@ class LogPostsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /log_posts/1
-  # PATCH/PUT /log_posts/1.json
   def update
     respond_to do |format|
       if @log_post.update(log_post_params)
@@ -62,8 +49,6 @@ class LogPostsController < ApplicationController
     end
   end
 
-  # DELETE /log_posts/1
-  # DELETE /log_posts/1.json
   def destroy
     if current_user.id == @log_post.user_id
       @log_post.destroy
