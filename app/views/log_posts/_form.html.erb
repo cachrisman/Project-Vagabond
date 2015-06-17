@@ -17,9 +17,7 @@
   </div>
   <div class="field form-group">
     <%= f.label :city %><br>
-    <!-- prevent user from modifying city -->
-    <%= f.text_field :city, disabled: true, class: 'form-control', value: @log_post.city.try(:name) %>
-    <!-- <%= f.text_field :city, class: 'form-control', value: @log_post.city.try(:name), autocomplete: "false", id: "city_search_field" %> -->
+    <%= f.text_field :city, class: 'form-control', value: @log_post.city.try(:name), autocomplete: "false", id: "city_search_field" %>
   </div>
   <div class="field form-group">
     <%= f.label :body %><br>
