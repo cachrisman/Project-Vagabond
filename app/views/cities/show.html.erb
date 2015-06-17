@@ -8,6 +8,7 @@
   <%= post.updated_at %>
   <%= link_to post.title, post %>
   <%= post.body %>
+  <%= button_to "Edit", edit_log_post_path(post), method: :get %>
   <%= button_to "Delete", post,  method: :delete,
       data: { confirm: "Are you sure?" } %>
   <% end %>

@@ -1,8 +1,8 @@
 require 'ffaker'
 
 # Destroy existing data
-User.destroy_all
-LogPost.destroy_all
+# User.destroy_all
+# LogPost.destroy_all
 
 def rand_in_range(from, to)
   rand * (to - from) + from
@@ -13,14 +13,14 @@ def rand_time(from, to=Time.now)
 end
 
 # create dev user
- user_params = {}
- user_params[:email] = "dev@test.com"
- user_params[:first_name] = "Test"
- user_params[:last_name] = "Test"
- user_params[:password] = "fakedata"
- user_params[:password_confirmation] = user_params[:password]
- user_params[:city_id] = 1
- new_user = User.create(user_params)
+ # user_params = {}
+ # user_params[:email] = "dev@test.com"
+ # user_params[:first_name] = "Test"
+ # user_params[:last_name] = "Test"
+ # user_params[:password] = "fakedata"
+ # user_params[:password_confirmation] = user_params[:password]
+ # user_params[:city_id] = 1
+ # new_user = User.create(user_params)
 
 (1..10).each do
 
