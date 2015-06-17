@@ -63,7 +63,8 @@ class LogPostsController < ApplicationController
   def destroy
     @log_post.destroy
     respond_to do |format|
-      format.html { redirect_to log_posts_url, notice: 'Log post was successfully destroyed.' }
+      #format.html { redirect_to log_posts_url, notice: 'Log post was successfully destroyed.' }
+      format.html { redirect_to :back, notice: 'Log post was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
