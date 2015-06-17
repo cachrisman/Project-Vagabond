@@ -1,0 +1,101 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+// Universal
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    font-family: "Lato" sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #000;
+    padding-top: 0;
+    margin: auto;
+
+    -webkit-font-smoothing: antialiased;
+    -webkit-overflow-scrolling: touch;
+}
+
+.container-fluid {
+  padding-right: 0px;
+  padding-left: 0px;
+}
+
+// Section Header
+
+#headerwrap {
+  position: relative;
+  width: 100%;
+  margin-top: 0;
+  background-position: center center;
+  min-height: 700px;
+  background-size: cover;
+}
+
+video {
+  display: inline-block;
+  position: absolute;
+  width: 100% !important;
+  height: auto;
+  z-index: -1;
+}
+
+#header-banner {
+
+  height: 200px;
+
+  margin: auto;
+  position: absolute;
+  top: 0; bottom:0;
+  left:0; right: 0;
+
+  text-align: center;
+
+}
+
+#headerwrap h2 {
+  color: #F2F2F2;
+}
+
+.header-button {
+  display: inline-block;
+  cursor: default;
+  list-style: none;
+}
+
+.signup-btn, .login-btn {
+  width: 150px;
+  height: 40px;
+}
+
+.login-btn a {
+  color: #F2F2F2;
+}
+
+// Section About
+
+#aboutwrap {
+  position: relative;
+  width: 100%;
+  margin-top: 0;
+  background-position: center center;
+  min-height: 700px;
+  background-size: cover;
+  background-color: green;
+}
+
+// Section Contact
+
+#contactwrap {
+  position: relative;
+  width: 100%;
+  margin-top: 0;
+  background-position: center center;
+  min-height: 700px;
+  background-size: cover;
+  background-color: red;
+}
