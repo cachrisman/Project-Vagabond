@@ -23,4 +23,8 @@ module SessionsHelper
     redirect_to root_path
   end
 
+  def redirect_unauthenticated
+    redirect_to login_path unless logged_in?
+  end
+
 end

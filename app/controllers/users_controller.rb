@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    return redirect_unauthenticated unless logged_in?
     @user = User.find(params[:id])
     render :show
   end

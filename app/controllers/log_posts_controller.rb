@@ -4,22 +4,26 @@ class LogPostsController < ApplicationController
   # GET /log_posts
   # GET /log_posts.json
   def index
+    return redirect_unauthenticated unless logged_in?
     @log_posts = LogPost.all
   end
 
   # GET /log_posts/1
   # GET /log_posts/1.json
   def show
+    return redirect_unauthenticated unless logged_in?
   end
 
   # GET /log_posts/new
   def new
+    return redirect_unauthenticated unless logged_in?    
     @log_post = LogPost.new
     @log_post.city = current_user.city
   end
 
   # GET /log_posts/1/edit
   def edit
+    return redirect_unauthenticated unless logged_in?
     if current_user.id == @log_post.user_id
       render :edit
     else 
