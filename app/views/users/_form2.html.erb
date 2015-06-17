@@ -10,7 +10,7 @@
       </ul>
     </div>
   <% end %>
-
+  <input autocomplete="false" name="hidden" type="text" style="display:none;">
   <div class="field form-group">
     <%= f.label :first_name %><br>
     <%= f.text_field :first_name, class: 'form-control'%>
@@ -21,7 +21,7 @@
   </div>
   <div class="field form-group">
     <%= f.label :city %><br>
-    <%= f.text_field :city, class: 'form-control', value: @user.city.try(:name), autocomplete: "on", id: "city_search_field" %>
+    <%= f.text_field :city, class: 'form-control', value: @user.city.try(:name), autocomplete: "false", id: "city_search_field" %>
   </div>
 
   <br>
