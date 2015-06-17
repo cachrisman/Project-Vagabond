@@ -14,8 +14,12 @@ class LogPostsController < ApplicationController
 
   # GET /log_posts/new
   def new
-    @log_post = LogPost.new
-    @log_post.city = current_user.city
+    if logged_in?
+      @log_post = LogPost.new
+      @log_post.city = current_user.city
+    else 
+      redirect_to login_path
+    end
   end
 
   # GET /log_posts/1/edit
@@ -80,9 +84,11 @@ class LogPostsController < ApplicationController
       if city == nil
         city = City.create({name: params[:log_post][:city]})
       end
+      
       @post_params = {}
       @post_params = params.require(:log_post).permit(:title, :body, :user_id)
       @post_params[:city_id] = city.id
+      @post_params[:user_id] = current_user.id
       return @post_params
     end
 end
