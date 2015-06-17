@@ -31,25 +31,4 @@
   </div>
 <% end %>
 
-<% content_for :javascript_includes do %>
-  <%= javascript_include_tag "application", "https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places" %>
-
-  <script type="text/javascript">
-    var initialize = function() {
-      var input         = document.getElementById('city_search_field');
-      var options       = {types: ['(cities)']};
-      var autocomplete      = new google.maps.places.Autocomplete(input, options);
-      google.maps.event.addListener(autocomplete, 'place_changed', function() {
-        $('#city_search_field').val(autocomplete.getPlace().name);
-      });
-    };
-
-    var ready;
-    ready = function() {
-      initialize();
-    };
-
-    $(document).ready(ready);
-    $(document).on('page:load', ready);
-  </script>
-<% end %>
+<%= javascript_include_tag 'autocomplete', 'data-turbolinks-track' => true %>
