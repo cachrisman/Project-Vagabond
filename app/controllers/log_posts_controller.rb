@@ -1,6 +1,7 @@
 class LogPostsController < ApplicationController
   before_action :set_log_post, only: [:show, :edit, :update, :destroy]
   before_filter :redirect_unauthenticated
+  include CitiesHelper
 
   def index
     @log_posts = LogPost.all
@@ -17,7 +18,7 @@ class LogPostsController < ApplicationController
   def edit
     if current_user.id == @log_post.user_id
       render :edit
-    else 
+    else
       flash[:warning] = "Sorry, you can only edit your own posts"
       redirect_to @log_post
     end
@@ -57,7 +58,7 @@ class LogPostsController < ApplicationController
         format.html { redirect_to :back, notice: 'Log post was successfully destroyed.' }
         format.json { head :no_content }
       end
-    else 
+    else
       flash[:warning] = "Sorry, you can only delete your own posts"
       redirect_to :back
     end
@@ -71,11 +72,7 @@ class LogPostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def log_post_params
-      city = City.find_by_name(params[:log_post][:city])
-      if city == nil
-        city = City.create({name: params[:log_post][:city]})
-      end
-      
+      city = check_city_input
       @post_params = {}
       @post_params = params.require(:log_post).permit(:title, :body, :user_id)
       @post_params[:city_id] = city.id

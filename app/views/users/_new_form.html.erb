@@ -13,21 +13,27 @@
   <input autocomplete="false" name="hidden" type="text" style="display:none;">
   <div class="field form-group">
     <%= f.label :first_name %><br>
-    <%= f.text_field :first_name, class: 'form-control'%>
+    <%= f.text_field :first_name %>
   </div>
   <div class="field form-group">
     <%= f.label :last_name %><br>
-    <%= f.text_field :last_name, class: 'form-control' %>
+    <%= f.text_field :last_name %>
   </div>
   <div class="field form-group">
-    <%= f.label :city %><br>
-    <%= f.text_field :city, class: 'form-control', value: @user.city.try(:name), autocomplete: "false", id: "city_search_field" %>
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
   </div>
-
-  <br>
-
+  <div class="field form-group">
+    <%= f.label :password %><br>
+    <%= f.password_field :password %>
+  </div>
+  <div class="field form-group">
+    <%= f.label :password_confirmation %><br>
+    <%= f.password_field :password_confirmation %>
+  </div>
+  <%= render partial: "layouts/city", locals: {f: f} %>
   <div class="actions">
-    <%= f.submit "Update Profile", class: "btn btn-primary" %>
+    <%= f.submit "Sign Up", class: "btn btn-primary" %>
   </div>
 <% end %>
 
