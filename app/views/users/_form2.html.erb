@@ -21,7 +21,7 @@
   </div>
   <div class="field form-group">
     <%= f.label :city %><br>
-    <%= f.text_field :city, class: 'form-control', value: @user.city.try(:name) %>
+    <%= f.text_field :city, class: 'form-control', value: @user.city.try(:name), autocomplete: "on", id: "city_search_field" %>
   </div>
 
   <br>
@@ -30,3 +30,5 @@
     <%= f.submit "Update Profile", class: "btn btn-primary" %>
   </div>
 <% end %>
+
+<%= javascript_include_tag 'autocomplete', 'data-turbolinks-track' => true %>

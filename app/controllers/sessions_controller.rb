@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     if @user
       login(@user)
       flash[:success] = "Successful login"
-      redirect_to @user
+      redirect_to cities_path
     else
       flash[:error] = "Something went wrong"
       redirect_to login_path

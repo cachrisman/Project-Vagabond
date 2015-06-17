@@ -84,9 +84,11 @@ class LogPostsController < ApplicationController
       if city == nil
         city = City.create({name: params[:log_post][:city]})
       end
+      
       @post_params = {}
       @post_params = params.require(:log_post).permit(:title, :body, :user_id)
       @post_params[:city_id] = city.id
+      @post_params[:user_id] = current_user.id
       return @post_params
     end
 end
