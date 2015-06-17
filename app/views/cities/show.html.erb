@@ -1,6 +1,12 @@
 <h1><%= @city.name %></h1>
 
-<%= image_tag @image_path, {height: 300} %>
+<iframe
+  width="600"
+  height="450"
+  frameborder="0" style="border:0"
+  src="<%= @map_url.html_safe  %>" >
+</iframe>
+<!-- <%= image_tag @image_path, {height: 300} %> -->
 
 <%= @log_posts.each_with_index do |post, index| %>
   <%= div_for(post, class:"log-post") do %>
