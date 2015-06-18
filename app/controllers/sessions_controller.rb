@@ -1,4 +1,10 @@
 class SessionsController < ApplicationController
+
+  def index
+    @home_page = true
+  end
+
+
   def new
     @user = User.new
   end
@@ -14,5 +20,7 @@ class SessionsController < ApplicationController
       redirect_to login_path
     end
   end
+
+
 
 end

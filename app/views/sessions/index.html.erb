@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <title>ProjectVagabond</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <%= stylesheet_link_tag    'custom', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'custom', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+    <section id="home" name="home"></section>
+    <div id="headerwrap">
+
+      <video loop="loop" preload="auto" id="header-video" class="video-playing">
+        <source src="//a0.muscache.com/airbnb/static/Paris-P1-1.mp4" type="video/mp4">
+        <source src="//a0.muscache.com/airbnb/static/Paris-P1-0.webm" type="video/webm">
+      </video>
+      <div id="header-banner" class= "col-md-6 col-md-offset-3">
+        <h2>Vagabond.ly</h2>
+        <p class="header-tagline">
+          <em>Wander the world. Create memories.</em>
+        </p>
+      <div class="header-button ">
+          <p class="signup-btn btn btn-primary"><%= link_to "Sign Up", signup_path %></p>
+          <p class="login-btn btn btn-primary"><%= link_to "Log In", login_path %></p>
+      </div>
+      </div>
+    </div> <!-- header section with background video  -->
+
+    <section id="about" name="about"></section>
+      <div id="aboutwrap">
+        <!-- <h1>Site#about</h1> -->
+        <li class="about-cells" id="europe">
+          <p><%= link_to "Europe", cities_path %></p>
+        </li>
+        <li class="about-cells" id="asia">
+          <p><%= link_to "Asia", cities_path %></p>
+        </li>
+        <li class="about-cells" id="africa">
+          <p><%= link_to "Africa", cities_path %></p>
+        </li>
+        <li class="about-cells" id="na">
+          <p><%= link_to "North America", cities_path %></p>
+        </li>
+        <li class="about-cells" id="sa">
+          <p><%= link_to "South America", cities_path %></p>
+        </li>
+        <li class="about-cells" id="aus">
+          <p><%= link_to "Australasia", cities_path %></p>
+        </li>
+      </div> <!-- about section  -->
+
+    <section id="contact" name="contact"></section>
+      <div id="contactwrap">
+        <div id="contact-content" class="col-md-6 col-md-offset-3">
+          <p>Contact Us</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Maecenas dictum sed metus sed pretium. Sed convallis ornare leo, ut pellentesque erat lobortis eget.
+            Suspendisse elementum ultrices est, vitae mattis sapien venenatis et.</p>
+          <p>
+            225 Bush Street<br/>
+            San Francisco, CA<br/>
+            USA
+          </p>
+          <p>
+            <strong>Phone</strong> 415 333 7834<br/>
+            <strong>Email</strong> hello@vagabondly.com<br/>
+          </p>
+        </div>
+        <div id="contact-form" class="col-md-6 col-md-offset-3">
+          <form role="form">
+            <div class="form-group">
+              <label for="exampleInputName1">Your Name</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter name">
+              <label for="exampleInputEmail1">Email address</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+              <label for="exampleInputText1">Message</label>
+              <textarea class="form-control" rows="3"></textarea>
+          </div>
+              <button type="submit" class="btn btn-default">Submit</button>
+          </form>
+        </div>
+
+      </div> <!-- contact section  -->
+
+</body>
+</html>
