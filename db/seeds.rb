@@ -59,11 +59,11 @@ cities.each do |city|
 end
 
 # create dev user
-User.create({
-  :email => "dev@test.com",
-  :first_name => "Test",
-  :last_name => "Test",
-  :password => "fakedata",
-  :password_confirmation => :password,
-  :city_id => 1
-})
+user_params = {}
+user_params[:email] = "dev@test.com"
+user_params[:first_name] = "Test"
+user_params[:last_name] = "Test"
+user_params[:password] = "fakedata"
+user_params[:password_confirmation] = user_params[:password]
+user_params[:city_id] = 1
+User.create(user_params)
