@@ -81,7 +81,7 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      city = check_city_input
+      city = check_city_input(:user)
       params[:user].delete :city
       @user_params = {}
       @user_params = params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)

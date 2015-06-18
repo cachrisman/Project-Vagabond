@@ -14,10 +14,10 @@ module CitiesHelper
 		return true
 	end
 
-  def check_city_input
+  def check_city_input(controller)
     city = City.find_by_place_id(params[:place_id])
     if city == nil
-      city = City.create({ name: params[:user][:city], place_id: params[:place_id], continent: params[:continent] })
+      city = City.create({ name: params[controller][:city], place_id: params[:place_id], continent: params[:continent] })
     end
     city
   end
