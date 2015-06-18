@@ -1,9 +1,9 @@
 class CitiesController < ApplicationController
   include CitiesHelper
-  before_filter :redirect_unauthenticated, except: [:show]
+  #before_filter :redirect_unauthenticated, except: [:show]
 
 	def index
-  end
+        end
 
   def show
   	@city = City.find(params[:id])
