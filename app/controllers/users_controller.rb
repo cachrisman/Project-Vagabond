@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_filter :redirect_unauthenticated, except: [:new, :create, :show]
-  
+
   include CitiesHelper
 
   def index
@@ -67,13 +67,9 @@ class UsersController < ApplicationController
     else
       current_user.following << user
     end
-    if request.xhr?
-      head :ok
-    end
-    #redirect_to user_path(current_user) and return
-    # redirect_to "/cities/1"
+    redirect_to user_path(user), status: 303
   end
-  
+
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy

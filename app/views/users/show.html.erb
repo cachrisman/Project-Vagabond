@@ -39,7 +39,7 @@
 
 <% if current_user != false %>
   <% if current_user != @user %>
-    <%= link_to "Follow", "/users/#{@user.id}/follow", class: 'follow', method: :put, remote: true %>
+    <%= link_to current_user.following.include?(@user) ? "Unfollow" : "Follow", "/users/#{@user.id}/follow", class: 'follow', method: :put %>
   <% end %>
 <% end %>
 <br />
