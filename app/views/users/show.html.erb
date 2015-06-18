@@ -13,18 +13,35 @@
 
 <p>
   <strong>City:</strong>
-  <%= @user.city %>
+  <a href="<%= city_path(@user.city_id) %>"><%= @user.city.try(:name) %></a>
 </p>
 
 <p>
   <strong>Join Date:</strong>
-  <%= @user.created_at.to_date %>
+  <%= @user.created_at.strftime("%B %d, %Y") %>
 </p>
 
-<% if current_user == @user %>
+<% if current_user != false %>
+  <% if current_user == @user %>
 	<%= link_to 'Edit', edit_user_path(@user) %>
+  <% end %>
 <% end %>
 
-<%= link_to 'Back', users_path %>
+<br />
+<% if @user.following.length > 0 %>
+  <strong>Following:</strong>
+  <ul>
+  <% @user.following.each do |f| %>
+  <li><%= f.first_name %> <%= f.last_name %> <a href='<%=user_path(f)%>'> profile </a></li>
+  <% end %>
+  </ul>
+<% end %>
+
+<% if current_user != false %>
+  <% if current_user != @user %>
+    <%= link_to current_user.following.include?(@user) ? "Unfollow" : "Follow", "/users/#{@user.id}/follow", class: 'follow', method: :put %>
+  <% end %>
+<% end %>
+<br />
 
 <%= render "log_posts" %>

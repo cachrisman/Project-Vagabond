@@ -1,6 +1,5 @@
 module UsersHelper
-
-
+	
   def gravatar_for(user)
     gravatar_id = Digest::MD5::hexdigest(user.email.downcase)
     gravatar_url = "https://secure.gravatar.com/avatar/#{gravatar_id}"
@@ -8,7 +7,7 @@ module UsersHelper
   end
 
 	def user_log_posts
-		user = User.find(params[:id])
+		user = User.find(@user.id)
 		user.log_posts
 	end
 

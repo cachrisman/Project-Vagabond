@@ -1,0 +1,216 @@
+@import url(http://fonts.googleapis.com/css?family=Oswald:400,300,700);
+@import url(http://fonts.googleapis.com/css?family=Lato:400,700);
+@import url(http://fonts.googleapis.com/css?family=Merriweather+Sans:400,300,300italic,400italic,700,700italic,800,800italic);
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+// Universal
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    font-family: "Lato" sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #000;
+    padding-top: 0;
+    margin: auto;
+
+    -webkit-font-smoothing: antialiased;
+    -webkit-overflow-scrolling: touch;
+}
+
+.container-fluid {
+  padding-right: 0px;
+  padding-left: 0px;
+}
+
+// Section Header
+
+#headerwrap {
+  position: relative;
+  width: 100%;
+  margin-top: 0;
+  background-position: center center;
+  min-height: 700px;
+  background-size: cover;
+}
+
+video {
+  display: inline-block;
+  position: absolute;
+  width: 100% !important;
+  height: auto;
+  z-index: -1;
+}
+
+#header-banner {
+
+  height: 200px;
+
+  margin: auto;
+  position: absolute;
+  top: 0; bottom:0;
+  left:0; right: 0;
+
+  text-align: center;
+
+}
+
+#headerwrap h1 {
+  color: #F2F2F2;
+  font-family: Oswald, sans-serif;
+  font-size: 100px;
+  font-weight: bold;
+  letter-spacing: 1.5;
+  text-transform: uppercase;
+}
+
+.header-tagline {
+  color: #F2F2F2;
+  font-family: Merriweather, sans-serif;
+  font-style: italic;
+  font-size: 28px;
+  margin: 15px 0 45px 0;
+}
+
+.header-button {
+  display: inline-block;
+  cursor: default;
+  list-style: none;
+}
+
+.signup-btn, .login-btn {
+  width: 200px;
+  height: 50px;
+  border: 1px solid transparent;
+  border-radius: 0;
+  margin: 0 10px;
+}
+
+.login-btn a, .signup-btn a {
+  color: #F2F2F2;
+  font-family: Lato, sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  letter-spacing: 1.1;
+  text-transform: uppercase;
+}
+
+// Section About
+
+#aboutwrap {
+  position: relative;
+  width: 100%;
+  margin-top: 0;
+  background-position: center center;
+  min-height: 700px;
+  background-size: cover;
+  // background-color: rgba(28, 28, 28, 0.5);
+}
+
+.about-cells {
+  width: 33.33%;
+  height: 350px;
+  // background-color: rgba(28, 28, 28, 0.5);
+  position: relative;
+  display: inline-block;
+  float:left;
+  list-style: none;
+}
+
+.about-cells p {
+  color: #F2F2F2;
+  font-size: 36px;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: bold;
+  font-family: Oswald, sans-serif;
+  font-weight: 700;
+  letter-spacing: 1.1;
+  z-index: 5;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#europe {
+  background-image: url("europe.jpg");
+  background-size: cover;
+  overflow: hidden;
+  color: #DDFFD9;
+}
+
+#asia {
+  background-image: url("asia.jpg");
+  background-size: cover;
+  overflow: hidden;
+  color: #DDFFD9;
+}
+
+#africa {
+  background-image: url("africa.jpg");
+  background-size: cover;
+  overflow: hidden;
+  color: #DDFFD9;
+}
+
+#aus {
+  background-image: url("aus.jpg");
+  background-size: cover;
+  overflow: hidden;
+  color: #DDFFD9;
+}
+
+#sa {
+  background-image: url("sa.jpg");
+  background-size: cover;
+  overflow: hidden;
+  color: #DDFFD9;
+}
+
+#na {
+  background-image: url("na.jpg");
+  color: #DDFFD9;
+  background-size: cover;
+  overflow: hidden;
+}
+
+// Section Contact
+
+#contactwrap {
+  position: relative;
+  width: 100%;
+  margin-top: 5%;
+  // background-position: center center;
+  min-height: 700px;
+  background-size: cover;
+  // background-color: rgba(28, 28, 28, 0.5);
+}
+
+#contactwrap p {
+  color: #6C4B5E;
+  font-family: Merriweather, sans-serif;
+}
+
+.custom-form {
+  border-radius: 0;
+}
+
+.custom-button {
+  border-radius: 0;
+  background: transparent;
+  opacity: 0.9;
+  color: black;
+}
+
+a {
+  color: #DDFFD9;
+  &:hover {
+    color: #D7907B;
+  }
+}

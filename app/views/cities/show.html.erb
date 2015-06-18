@@ -1,0 +1,14 @@
+<h1><%= @city.name %></h1>
+
+<div id="map">
+	<iframe
+	  width="600"
+	  height="450"
+	  frameborder="0" style="border:0"
+	  src="<%= @map_url.html_safe  %>" >
+	</iframe>
+</div>
+
+<h3>Posts about <%= @city.name %></h3>
+
+<%= render "city_log_posts" %>

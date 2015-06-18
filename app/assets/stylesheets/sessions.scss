@@ -1,10 +1,39 @@
 // Place all the styles related to the Sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
 #error {
   color: red;
 }
 
 #success {
   color: green;
+}
+
+// Universal
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    font-family: "Lato" sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #000;
+
+    -webkit-font-smoothing: antialiased;
+    -webkit-overflow-scrolling: touch;
+}
+
+#headerwrap {
+  position: relative;
+  width: 100%
+}
+
+h2 {
+  position: absolute;
+  top: 200px;
+  width: 100%;
 }

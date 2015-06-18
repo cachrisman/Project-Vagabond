@@ -1,8 +1,54 @@
+/*
+*= require_tree .
+*/
+@import url(http://fonts.googleapis.com/css?family=Oswald:400,300,700);
+@import url(http://fonts.googleapis.com/css?family=Lato:400,700);
+@import url(http://fonts.googleapis.com/css?family=Merriweather+Sans:400,300,300italic,400italic,700,700italic,800,800italic);
+
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+
+/*
+ * This is a manifest file that'll be compiled into application.css, which
+ * will include all the files listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets,
+ * vendor/assets/stylesheets, or vendor/assets/stylesheets of plugins, if any,
+ * can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear
+ * at the bottom of the compiled file so the styles you add here take
+ * precedence over styles defined in any styles defined in the other CSS/SCSS
+ * files in this directory. It is generally better to create a new file per
+ * style scope.
+ *
+ *= require_tree ./custom
+ *= require_self
+ */
 
 // Universal
 
 body {
   padding-top: 60px;
 }
+
+.custom-form {
+	border-radius: 0;
+}
+
+.custom-button {
+	font-family: 'Merriweather Sans', sans-serif;
+	margin-top: 3rem;
+	font-weight: bold;
+	border-radius: 0;
+	background: transparent;
+	opacity: 0.9;
+	color: black;
+	&:hover {
+    color: #fff;
+    background-color: #B3679B;
+  }
+}
+

@@ -1,38 +1,36 @@
 class LogPostsController < ApplicationController
+  include LogPostsHelper
+
   before_action :set_log_post, only: [:show, :edit, :update, :destroy]
+  before_filter :redirect_unauthenticated
+  include CitiesHelper
 
-  # GET /log_posts
-  # GET /log_posts.json
   def index
-    @log_posts = LogPost.all
+    return redirect_to cities_index_path if logged_in?
+    redirect_to login_path
   end
 
-  # GET /log_posts/1
-  # GET /log_posts/1.json
   def show
+    @post = LogPost.find(params[:id])
+    @posts = LogPost.includes(:title, :body).order("created_at DESC").limit(5)
   end
 
-  # GET /log_posts/new
   def new
     @log_post = LogPost.new
     @log_post.city = current_user.city
   end
 
-  # GET /log_posts/1/edit
   def edit
     if current_user.id == @log_post.user_id
       render :edit
-    else 
+    else
       flash[:warning] = "Sorry, you can only edit your own posts"
       redirect_to @log_post
     end
   end
 
-  # POST /log_posts
-  # POST /log_posts.json
   def create
     @log_post = LogPost.new(log_post_params)
-
     respond_to do |format|
       if @log_post.save
         format.html { redirect_to @log_post, notice: 'Log post was successfully created.' }
@@ -44,8 +42,6 @@ class LogPostsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /log_posts/1
-  # PATCH/PUT /log_posts/1.json
   def update
     respond_to do |format|
       if @log_post.update(log_post_params)
@@ -58,13 +54,17 @@ class LogPostsController < ApplicationController
     end
   end
 
-  # DELETE /log_posts/1
-  # DELETE /log_posts/1.json
   def destroy
-    @log_post.destroy
-    respond_to do |format|
-      format.html { redirect_to log_posts_url, notice: 'Log post was successfully destroyed.' }
-      format.json { head :no_content }
+    if current_user.id == @log_post.user_id
+      @log_post.destroy
+      respond_to do |format|
+        #format.html { redirect_to log_posts_url, notice: 'Log post was successfully destroyed.' }
+        format.html { redirect_to :back, notice: 'Log post was successfully destroyed.' }
+        format.json { head :no_content }
+      end
+    else
+      flash[:warning] = "Sorry, you can only delete your own posts"
+      redirect_to :back
     end
   end
 
@@ -76,6 +76,13 @@ class LogPostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def log_post_params
-      params.require(:log_post).permit(:title, :body, :user_id, :city)
+      city = check_city_input(:log_post)
+      params[:log_post].delete :city
+      @post_params = {}
+      @post_params = params.require(:log_post).permit(:title, :body, :user_id)
+      @post_params[:city_id] = city.id
+      @post_params[:user_id] = current_user.id
+      sanitize_obscenities(@post_params[:title], @post_params[:body])
+      return @post_params
     end
 end
