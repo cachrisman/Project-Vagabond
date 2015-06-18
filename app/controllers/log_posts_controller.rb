@@ -1,4 +1,6 @@
 class LogPostsController < ApplicationController
+  include LogPostsHelper
+
   before_action :set_log_post, only: [:show, :edit, :update, :destroy]
   before_filter :redirect_unauthenticated
   include CitiesHelper
@@ -83,6 +85,7 @@ class LogPostsController < ApplicationController
       @post_params = params.require(:log_post).permit(:title, :body, :user_id)
       @post_params[:city_id] = city.id
       @post_params[:user_id] = current_user.id
+      sanitize_obscenities(@post_params[:title], @post_params[:body])
       return @post_params
     end
 end
