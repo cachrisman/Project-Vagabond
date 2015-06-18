@@ -1,12 +1,11 @@
 ul.cities {
-	text-align: center;
 	list-style: none;
 	width: 100%;
 }
 
 li {
-	display: inline-block;
 	list-style: none;
+  padding-left: -1rem;
 }
 
 img.gravatar {
