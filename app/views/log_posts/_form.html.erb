@@ -10,15 +10,12 @@
       </ul>
     </div>
   <% end %>
-
+  <input autocomplete="false" name="hidden" type="text" style="display:none;">
   <div class="field form-group">
     <%= f.label :title %><br>
     <%= f.text_field :title, class: 'form-control' %>
   </div>
-  <div class="field form-group">
-    <%= f.label :city %><br>
-    <%= f.text_field :city, class: 'form-control', value: @log_post.city.try(:name), autocomplete: "on", id: "city_search_field" %>
-  </div>
+  <%= render partial: "layouts/city", locals: {f: f, item:@log_post} %>
   <div class="field form-group">
     <%= f.label :body %><br>
     <%= f.text_area :body, :class => "form-control tinymce", :rows => 20, :cols => 30 %>

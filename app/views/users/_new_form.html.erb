@@ -10,7 +10,7 @@
       </ul>
     </div>
   <% end %>
-
+  <input autocomplete="false" name="hidden" type="text" style="display:none;">
   <div class="field form-group">
     <%= f.label :first_name %><br>
     <%= f.text_field :first_name %>
@@ -31,10 +31,7 @@
     <%= f.label :password_confirmation %><br>
     <%= f.password_field :password_confirmation %>
   </div>
-  <div class="field form-group">
-    <%= f.label :city %><br>
-    <%= f.text_field :city, autocomplete: "on", id: "city_search_field" %>
-  </div>
+  <%= render partial: "layouts/city", locals: {f: f, item:@user} %>
   <div class="actions">
     <%= f.submit "Sign Up", class: "btn btn-primary" %>
   </div>
