@@ -7,8 +7,6 @@
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "About", about_path %></li>
-        <li><%= link_to "Contact", contact_path %></li>
         <li><%= link_to "Cities", cities_path %></li>
         <% if logged_in? %>
           <li><%= link_to "Post", new_log_post_path %></li>

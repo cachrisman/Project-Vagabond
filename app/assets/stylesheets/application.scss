@@ -39,9 +39,16 @@ body {
 }
 
 .custom-button {
+	font-family: 'Merriweather Sans', sans-serif;
+	margin-top: 3rem;
+	font-weight: bold;
 	border-radius: 0;
 	background: transparent;
 	opacity: 0.9;
 	color: black;
+	&:hover {
+    color: #fff;
+    background-color: #B3679B;
+  }
 }
 

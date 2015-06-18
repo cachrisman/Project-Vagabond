@@ -13,7 +13,7 @@
 
 <p>
   <strong>City:</strong>
-  <%= @user.city.try(:name) %>
+  <a href="<%= city_path(@user.city_id) %>"><%= @user.city.try(:name) %></a>
 </p>
 
 <p>
