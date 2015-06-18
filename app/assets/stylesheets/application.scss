@@ -1,9 +1,14 @@
 /*
-*= require_tree . 
+*= require_tree .
 */
+@import url(http://fonts.googleapis.com/css?family=Oswald:400,300,700);
+@import url(http://fonts.googleapis.com/css?family=Lato:400,700);
+@import url(http://fonts.googleapis.com/css?family=Merriweather+Sans:400,300,300italic,400italic,700,700italic,800,800italic);
+
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
 
 /*
  * This is a manifest file that'll be compiled into application.css, which
@@ -37,6 +42,6 @@ body {
 	border-radius: 0;
 	background: transparent;
 	opacity: 0.9;
-	border: .5rem solid black;
+	color: black;
 }
 

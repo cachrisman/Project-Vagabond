@@ -1,9 +1,9 @@
-@import "bootstrap-sprockets";
-@import "bootstrap";
-
 @import url(http://fonts.googleapis.com/css?family=Oswald:400,300,700);
 @import url(http://fonts.googleapis.com/css?family=Lato:400,700);
 @import url(http://fonts.googleapis.com/css?family=Merriweather+Sans:400,300,300italic,400italic,700,700italic,800,800italic);
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
 
 // Universal
 
@@ -61,7 +61,7 @@ video {
 
 }
 
-#headerwrap h2 {
+#headerwrap h1 {
   color: #F2F2F2;
   font-family: Oswald, sans-serif;
   font-size: 100px;
@@ -142,34 +142,40 @@ video {
   background-image: url("europe.jpg");
   background-size: cover;
   overflow: hidden;
+  color: #DDFFD9;
 }
 
 #asia {
   background-image: url("asia.jpg");
   background-size: cover;
   overflow: hidden;
+  color: #DDFFD9;
 }
 
 #africa {
   background-image: url("africa.jpg");
   background-size: cover;
   overflow: hidden;
+  color: #DDFFD9;
 }
 
 #aus {
   background-image: url("aus.jpg");
   background-size: cover;
   overflow: hidden;
+  color: #DDFFD9;
 }
 
 #sa {
   background-image: url("sa.jpg");
   background-size: cover;
   overflow: hidden;
+  color: #DDFFD9;
 }
 
 #na {
   background-image: url("na.jpg");
+  color: #DDFFD9;
   background-size: cover;
   overflow: hidden;
 }
@@ -187,6 +193,21 @@ video {
 }
 
 #contactwrap p {
-  color: #F2F2F2;
+  color: #6C4B5E;
   font-family: Merriweather, sans-serif;
+}
+
+.custom-form {
+  border-radius: 0;
+}
+
+.custom-button {
+  border-radius: 0;
+  background: transparent;
+  opacity: 0.9;
+  color: black;
+}
+
+a {
+  color: #DDFFD9;
 }
