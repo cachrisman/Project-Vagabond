@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   get 'cities/show'
 
-  root to: "sessions#new"
+  root to: "sessions#index"
   get '/login', to: "sessions#new"
 
   get "/about", to: "site#about"
@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
   get '/cities', to: 'cities#index', as: 'cities'
   get '/cities/:id', to: 'cities#show', as: 'city'
-  
+
   # get '/cities/:city_id/log_posts', to: "cities#show", as: "city_log_posts"
   resources :log_posts
   resources :users
