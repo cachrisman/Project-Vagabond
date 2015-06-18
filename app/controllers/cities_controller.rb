@@ -9,6 +9,7 @@ class CitiesController < ApplicationController
   	@city = City.find(params[:id])
     @map_url = "https://www.google.com/maps/embed/v1/place?key=AIzaSyA6uHiYNpXLoVoNBWrgPgS1tIGYcn6tHH0&q=#{@city.name.sub(' ', '+')}"
     @log_posts = LogPost.where("city_id == #{@city.id}").order(:updated_at).reverse_order
+    @log_posts = LogPost.where("city_id == #{@city.id}").order(:updated_at).reverse_order.limit(10)
     @users = []
     @log_posts.each do |post|
       post.title.slice(0, 100)  #truncate to 100 chars
