@@ -22,4 +22,14 @@ module CitiesHelper
     city
   end
 
+  def remove_spaces_city(city_name)
+  	@vanity = city_name.gsub(/ /, '-').downcase
+  	return @vanity
+  end
+
+  def remove_dashes_city(params)
+  	@city_name = params.gsub(/-/, ' ').titleize
+  	return @city_name
+  end
+
 end

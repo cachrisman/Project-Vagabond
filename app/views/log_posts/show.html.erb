@@ -16,12 +16,12 @@
 
   <p>
     <strong>User:</strong>
-    <%= @log_post.user.try(:first_name) %> <%= @log_post.user.try(:last_name) %>
+    <a href="<%= user_path(@log_post.user_id)%>"><%= @log_post.user.try(:first_name) %> <%= @log_post.user.try(:last_name) %> </a>
   </p>
 
   <p>
     <strong>City:</strong>
-    <%= @log_post.city.try(:name) %>
+    <a href="<%= city_path(remove_spaces_city(@log_post.city.name))%>"><%= @log_post.city.try(:name) %></a>
   </p>
 
 <% if current_user.id == @log_post.user_id %>

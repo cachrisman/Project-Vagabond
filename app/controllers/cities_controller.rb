@@ -6,8 +6,9 @@ class CitiesController < ApplicationController
   end
 
   def show
-  	@city = City.find(params[:id])
+    sanitized_params = remove_dashes_city(params[:id])
 
+  	@city = City.find_by_name(sanitized_params) || City.find(params[:id])
         @map_url = "https://www.google.com/maps/embed/v1/place?key=AIzaSyA6uHiYNpXLoVoNBWrgPgS1tIGYcn6tHH0&q=#{@city.name.sub(' ', '+')}"
         @log_posts = LogPost.where("city_id == #{@city.id}").order(:updated_at).reverse_order
 
@@ -19,4 +20,6 @@ class CitiesController < ApplicationController
         end
   	render :show
   end
+
+
 end
