@@ -29,5 +29,17 @@ function loadScript() {
 }
 
 $(function () {
+  $('.edit_user').on("keypress", function (e) {
+    if (e.keyCode === 13) {
+        return false;
+      }
+  });
+
+  $('.new_log_post').on("keypress", function (e) {
+    if (e.keyCode === 13) {
+        return false;
+      }
+  });
+
   loadScript();
 });
