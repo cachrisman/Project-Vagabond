@@ -1,4 +1,4 @@
-ul.cities {
+/*ul.cities {
 	list-style: none;
 	width: 100%;
 }
@@ -6,7 +6,7 @@ ul.cities {
 li {
 	list-style: none;
   padding-left: -1rem;
-}
+}*/
 
 img.gravatar {
   border-radius: 4rem;
@@ -14,15 +14,14 @@ img.gravatar {
   height: 6rem;
 }
 
-div#title {
+div#content {
   padding-left: 10rem;
 }
 
 div#gravatar {
-  width: 0%;
-  
+  width: 0%;  
 }
 
-div#body {
-  padding-left: 10rem;
+a {
+  color: #D7907B;
 }
