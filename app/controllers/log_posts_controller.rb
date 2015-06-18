@@ -9,6 +9,8 @@ class LogPostsController < ApplicationController
   end
 
   def show
+    @post = LogPost.find(params[:id])
+    @posts = LogPost.includes(:title, :body).order("created_at DESC").limit(5)
   end
 
   def new
@@ -74,7 +76,9 @@ class LogPostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def log_post_params
+
       city = check_city_input
+
       @post_params = {}
       @post_params = params.require(:log_post).permit(:title, :body, :user_id)
       @post_params[:city_id] = city.id
