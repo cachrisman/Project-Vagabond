@@ -6,8 +6,8 @@ class UsersController < ApplicationController
 
   def index
     @user = current_user
-    return redirect_to @user if @user
-    redirect_to login_path
+    redirect_to @user and return if @user
+    redirect_to login_path and return
   end
 
   def show
@@ -60,6 +60,20 @@ class UsersController < ApplicationController
     end
   end
 
+  def follow
+    user = User.find(params[:id])
+    if current_user.following.include?(user)
+      current_user.following.delete(user)
+    else
+      current_user.following << user
+    end
+    if request.xhr?
+      head :ok
+    end
+    #redirect_to user_path(current_user) and return
+    # redirect_to "/cities/1"
+  end
+  
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy
