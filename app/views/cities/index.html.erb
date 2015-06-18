@@ -5,7 +5,7 @@
 		<h3><%= city.continent %></h3>
 		<ul class="cities">
 			<% cities_in_continent(city.continent).each do |x| %>
-				<li><a href='<%= city_path(x.id)%>'><%= x.name %></a></li>
+				<li><a href='<%= city_path(remove_spaces_city(x.name))%>'><%= x.name %></a></li>
 			<% end %>
 		</ul>
 	</div>

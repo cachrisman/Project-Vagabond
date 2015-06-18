@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150617213853) do
+ActiveRecord::Schema.define(version: 20150618175443) do
 
   create_table "cities", force: :cascade do |t|
     t.string   "name"
@@ -20,6 +20,13 @@ ActiveRecord::Schema.define(version: 20150617213853) do
     t.string   "continent"
     t.string   "place_id"
   end
+
+  create_table "following", id: false, force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "following_id"
+  end
+
+  add_index "following", ["user_id", "following_id"], name: "index_following_on_user_id_and_following_id"
 
   create_table "log_posts", force: :cascade do |t|
     t.string   "title"
