@@ -1,0 +1,29 @@
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <input autocomplete="false" name="hidden" type="text" style="display:none;">
+  <div class="field form-group">
+    <%= f.label :first_name %><br>
+    <%= f.text_field :first_name, class: 'form-control custom-form'%>
+  </div>
+  <div class="field form-group">
+    <%= f.label :last_name %><br>
+    <%= f.text_field :last_name, class: 'form-control custom-form' %>
+  </div>
+  <%= render partial: "layouts/city", locals: {f: f, item:@user} %>
+  <br>
+  <div class="actions">
+    <%= f.submit "Update Profile", class: "btn btn-primary custom-button" %>
+  </div>
+<% end %>
+
+<%= javascript_include_tag 'autocomplete', 'data-turbolinks-track' => true %>

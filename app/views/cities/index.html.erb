@@ -1,0 +1,12 @@
+<h1>Check out our cities!</h1>
+
+<% continents.each do |city| %>
+	<div class='col-lg-4 continent'>
+		<h3><%= city.continent %></h3>
+		<ul class="cities">
+			<% cities_in_continent(city.continent).each do |x| %>
+				<li><a href='<%= city_path(remove_spaces_city(x.name))%>'><%= x.name %></a></li>
+			<% end %>
+		</ul>
+	</div>
+<% end %>
