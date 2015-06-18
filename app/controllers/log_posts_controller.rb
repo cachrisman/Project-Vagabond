@@ -4,7 +4,8 @@ class LogPostsController < ApplicationController
   include CitiesHelper
 
   def index
-    @log_posts = LogPost.all
+    return redirect_to cities_index_path if logged_in?
+    redirect_to login_path
   end
 
   def show
@@ -26,7 +27,7 @@ class LogPostsController < ApplicationController
 
   def create
     @log_post = LogPost.new(log_post_params)
-    @log_post.city = current_user.city 
+    @log_post.city = current_user.city
 
     respond_to do |format|
       if @log_post.save
