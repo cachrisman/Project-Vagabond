@@ -8,7 +8,7 @@ class CitiesController < ApplicationController
   def show
   	@city = City.find(params[:id])
         @image_path = "#{params[:id]}.jpg"
-        @log_posts = LogPost.where("city_id == #{@city.id}").order(:updated_at).reverse_order.limit(10)
+        @log_posts = LogPost.where("city_id == #{@city.id}").order(:updated_at).reverse_order.limit(2)
         @users = []
         @log_posts.each do |post|
           post.title.slice(0, 100)  #truncate to 100 chars

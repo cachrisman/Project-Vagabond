@@ -10,7 +10,10 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    render :show
+    @log_posts = @user.log_posts.limit(5)
+    @log_post_limit = 5
+
+      render :show
   end
 
   # GET /users/new
@@ -32,7 +35,7 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-    
+
     respond_to do |format|
       if @user.save
         login(@user)

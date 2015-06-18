@@ -8,7 +8,7 @@ class LogPostsController < ApplicationController
 
   def show
     @post = LogPost.find(params[:id])
-    @posts = LogPost.includes(:title, :body).order("created_at DESC").limit(10)
+    @posts = LogPost.includes(:title, :body).order("created_at DESC").limit(5)
   end
 
   def new
