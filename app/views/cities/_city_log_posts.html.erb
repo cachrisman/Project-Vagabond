@@ -10,11 +10,11 @@
 		<div id="title">
 	  		<%= link_to post.title.slice(0, 100), post %>
 	  	</div>
-	  
+
 		<div id="time-stamp">
-	  		<a href='<%= user_path(post.user_id)%>'><%= post.user.first_name %></a> posted <%= time_ago_in_words(post.updated_at) %> ago  
+	  		<a href='<%= user_path(post.user_id)%>'><%= post.user.first_name %></a> posted <%= time_ago_in_words(post.updated_at) %> ago
 	  	</div>
-	  
+
 	  	<div id="body">
 	  		<p><%= post.body.slice(0, 140) %></p>
 	  	</div>
