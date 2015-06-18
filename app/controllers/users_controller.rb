@@ -6,8 +6,8 @@ class UsersController < ApplicationController
 
   def index
     @user = current_user
-    return redirect_to @user if @user
-    redirect_to login_path
+    redirect_to @user and return if @user
+    redirect_to login_path and return
   end
 
   def show
@@ -70,7 +70,8 @@ class UsersController < ApplicationController
     if request.xhr?
       head :ok
     end
-    redirect_to user_path(current_user) and return
+    #redirect_to user_path(current_user) and return
+    # redirect_to "/cities/1"
   end
   
   # DELETE /users/1
