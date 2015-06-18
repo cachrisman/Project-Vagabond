@@ -1,7 +1,3 @@
-// Place all the styles related to the Cities controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-
 ul.cities {
 	text-align: center;
 	list-style: none;
@@ -11,4 +7,23 @@ ul.cities {
 li {
 	display: inline-block;
 	list-style: none;
+}
+
+img.gravatar {
+  border-radius: 4rem;
+  float: left;
+  height: 6rem;
+}
+
+div#title {
+  padding-left: 10rem;
+}
+
+div#gravatar {
+  width: 0%;
+  
+}
+
+div#body {
+  padding-left: 10rem;
 }
