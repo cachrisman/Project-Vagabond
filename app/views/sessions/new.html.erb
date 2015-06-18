@@ -1,60 +1,33 @@
-<!DOCTYPE html>
-<html lang='en'>
-<head>
-  <title>ProjectVagabond</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <%= stylesheet_link_tag    'custom', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'custom', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<div id="main-container" class="container">
 
-    <section id="home" name="home"></section>
-    <div id="headerwrap">
+  <div class="row"> <!-- hero image -->
+    <div id="hero-image" class="col-md-6 col-md-offset-3">
+      <iframe src="https://player.vimeo.com/video/71319358?autoplay=1&title=0&byline=0&portrait=0&badge=0"
+      width="555" height="312" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+    </div>
+  </div> <!-- -- hero image  -->
 
-      <video loop="loop" preload="auto" id="header-video" class="video-playing">
-        <source src="//a0.muscache.com/airbnb/static/Paris-P1-1.mp4" type="video/mp4">
-        <source src="//a0.muscache.com/airbnb/static/Paris-P1-0.webm" type="video/webm">
-      </video>
-      <div id="header-banner" class= "col-md-6 col-md-offset-3">
-        <h2>Vagabond.ly</h2>
-        <p class="header-tagline">
-          <em>Wander the world. Create memories.</em>
-        </p>
-      <div class="header-button ">
-          <p class="signup-btn btn btn-primary"><%= link_to "Sign Up" %></p>
-          <p class="login-btn btn btn-primary"><%= link_to "Log In" %></p>
+  <div class="row"> <!-- login -->
+    <div class="form-signin col-md-6 col-md-offset-3" >
+      <%= form_for @user, url: "/sessions", method: "post"  do |f| %>
+      <div class="form-group">
+        <%= f.label :email %>
+        <%= f.email_field :email, placeholder: "Email", class: "form-control" %>
       </div>
+      <div class="form-group">
+      <%= f.label :password %>
+      <%= f.password_field :password, placeholder: "Password", class: "form-control" %>
       </div>
-    </div> <!-- header section with background video  -->
+      <div class="form-group">
+      <%= f.submit "Sign In", class: "btn btn-large btn-primary btn-block" %>
+      </div>
+      <% end %>
+    </div>
+  </div>  <!-- login -->
 
-    <section id="about" name="about"></section>
-      <div id="aboutwrap">
-        <!-- <h1>Site#about</h1> -->
-        <li class="about-cells" id="europe">
-          <p>Europe</p>
-        </li>
-        <li class="about-cells" id="asia">
-          <p>Asia</p>
-        </li>
-        <li class="about-cells" id="africa">
-          <p>Africa</p>
-        </li>
-        <li class="about-cells" id="na">
-          <p>North America</p>
-        </li>
-        <li class="about-cells" id="sa">
-          <p>South America</p>
-        </li>
-        <li class="about-cells" id="aus">
-          <p>Australasia</p>  
-        </li>
-      </div> <!-- about section  -->
-
-    <section id="contact" name="contact"></section>
-      <div id="contactwrap">
-
-      </div> <!-- contact section  -->
-
-</body>
-</html>
+  <div class="row"> <!-- signup -->
+    <div class="sign-up col-md-6 col-md-offset-3">
+      <h4>Don't have an account? <%= link_to "Sign Up!", "/users/new" %> </h4>
+    </div>
+  </div> <!-- signup -->
+</div>

@@ -1,8 +1,12 @@
 class SessionsController < ApplicationController
 
+  def index
+    @home_page = true
+  end
+
+
   def new
     @user = User.new
-    @home_page = true
   end
 
   def create

@@ -110,17 +110,16 @@ video {
   background-position: center center;
   min-height: 700px;
   background-size: cover;
-  background-color: green;
+  // background-color: rgba(28, 28, 28, 0.5);
 }
 
 .about-cells {
   width: 33.33%;
   height: 350px;
-  background-color: rgba(28, 28, 28, 0.5);
+  // background-color: rgba(28, 28, 28, 0.5);
   position: relative;
   display: inline-block;
   float:left;
-  // border: 1px solid black;
   list-style: none;
 }
 
@@ -133,7 +132,7 @@ video {
   font-family: Oswald, sans-serif;
   font-weight: 700;
   letter-spacing: 1.1;
-  z-index: 1;
+  z-index: 5;
   position: relative;
   top: 50%;
   transform: translateY(-50%);
@@ -180,9 +179,14 @@ video {
 #contactwrap {
   position: relative;
   width: 100%;
-  margin-top: 0;
-  background-position: center center;
+  margin-top: 5%;
+  // background-position: center center;
   min-height: 700px;
   background-size: cover;
-  background-color: red;
+  // background-color: rgba(28, 28, 28, 0.5);
+}
+
+#contactwrap p {
+  color: #F2F2F2;
+  font-family: Merriweather, sans-serif;
 }
