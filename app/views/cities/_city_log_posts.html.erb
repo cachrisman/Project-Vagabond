@@ -8,7 +8,7 @@
 
 	<div id="content">
 		<div id="title">
-	  		<%= link_to post.title.slice(0, 100), post %>
+	  		<%= link_to post.title.slice(0, 100).html_safe, post %>
 	  	</div>
 	  
 		<div id="time-stamp">
@@ -16,14 +16,16 @@
 	  	</div>
 	  
 	  	<div id="body">
-	  		<p><%= post.body.slice(0, 140) %></p>
+	  		<p><%= post.body.slice(0, 140).html_safe %></p>
 	  	</div>
 
-	  	<% if current_user.id == post.user_id %>
+	  	<% if current_user != false %>
+                  <% if current_user.id == post.user_id %>
 	  		<%= button_to "Edit", edit_log_post_path(post), method: :get %>
 	  		<%= button_to "Delete", post,  method: :delete,
 	      data: { confirm: "Are you sure?" } %>
-	    <% end %>
+                  <% end %>
+	        <% end %>
 	</div>
 </div>
 
