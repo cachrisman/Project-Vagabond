@@ -1,29 +1,19 @@
-ul.cities {
-	text-align: center;
-	list-style: none;
-	width: 100%;
-}
-
-li {
-	display: inline-block;
-	list-style: none;
-}
-
 img.gravatar {
   border-radius: 4rem;
   float: left;
   height: 6rem;
+  margin-right: 1rem;
 }
 
-div#title {
-  padding-left: 10rem;
+div#content {
+  padding-left: 7rem;
+  margin-top: 5rem;
 }
 
 div#gravatar {
-  width: 0%;
-  
+  width: 0%;  
 }
 
-div#body {
-  padding-left: 10rem;
+a {
+  color: #D7907B;
 }

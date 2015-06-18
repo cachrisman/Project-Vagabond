@@ -1,6 +1,6 @@
   <div class="field form-group">
     <%= f.label :city %><br>
-    <%= f.text_field :city, class: 'form-control', value: item.city.try(:name), autocomplete: "false", id: "city_search_field" %>
+    <%= f.text_field :city, class: 'form-control custom-form', value: item.city.try(:name), autocomplete: "false", id: "city_search_field" %>
     <%= hidden_field_tag :place_id %>
     <%= hidden_field_tag :continent %>
   </div>

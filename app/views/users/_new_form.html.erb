@@ -1,5 +1,4 @@
-<%= form_for(@user) do |f| %>
-  <% if @user.errors.any? %>
+<% if @user.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
 
@@ -10,31 +9,33 @@
       </ul>
     </div>
   <% end %>
-  <input autocomplete="false" name="hidden" type="text" style="display:none;">
-  <div class="field form-group">
-    <%= f.label :first_name %><br>
-    <%= f.text_field :first_name %>
-  </div>
-  <div class="field form-group">
-    <%= f.label :last_name %><br>
-    <%= f.text_field :last_name %>
-  </div>
-  <div class="field form-group">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
-  </div>
-  <div class="field form-group">
-    <%= f.label :password %><br>
-    <%= f.password_field :password %>
-  </div>
-  <div class="field form-group">
-    <%= f.label :password_confirmation %><br>
-    <%= f.password_field :password_confirmation %>
-  </div>
-  <%= render partial: "layouts/city", locals: {f: f, item:@user} %>
-  <div class="actions">
-    <%= f.submit "Sign Up", class: "btn btn-primary" %>
-  </div>
-<% end %>
 
-<%= javascript_include_tag 'autocomplete', 'data-turbolinks-track' => true %>
+  <%= form_for(@user) do |f| %>
+    <input autocomplete="false" name="hidden" type="text" style="display:none;">
+    <div class="field form-group">
+      <%= f.label :first_name %><br>
+      <%= f.text_field :first_name, placeholder: "Ex: 'Ferdinand'",class: 'form-control custom-form' %>
+    </div>
+    <div class="field form-group">
+      <%= f.label :last_name %><br>
+      <%= f.text_field :last_name, placeholder: "Ex: 'Magellan'", class: 'form-control custom-form' %>
+    </div>
+    <div class="field form-group">
+      <%= f.label :email %><br>
+      <%= f.text_field :email, placeholder: "Ex: 'ferdinand@megellan.co'", class: 'form-control custom-form' %>
+    </div>
+    <div class="field form-group">
+      <%= f.label :password %><br>
+      <%= f.password_field :password, placeholder: "Enter a password", class: 'form-control custom-form' %>
+    </div>
+    <div class="field form-group">
+      <%= f.label :password_confirmation %><br>
+      <%= f.password_field :password_confirmation, placeholder: "One more time", class: 'form-control custom-form' %>
+    </div>
+    <%= render partial: "layouts/city", locals: {f: f, item:@user} %>
+    <div class="actions">
+      <%= f.submit "Sign Up", class: "btn btn-primary btn-block custom-button" %>
+    </div>
+  <% end %>
+
+  <%= javascript_include_tag 'autocomplete', 'data-turbolinks-track' => true %>
