@@ -1,17 +1,22 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_filter :redirect_unauthenticated, except: [:new, :create]
+  include CitiesHelper
 
-  # GET /users
-  # GET /users.json
   def index
-    @users = User.all
+    @user = current_user
+    return redirect_to @user if @user
+    redirect_to login_path
   end
 
-  # GET /users/1
-  # GET /users/1.json
   def show
+
     @user = User.find(params[:id])
-    render :show
+    @log_posts = @user.log_posts.limit(10)
+    @log_post_limit = 10
+
+      render :show
+
   end
 
   # GET /users/new
@@ -22,7 +27,6 @@ class UsersController < ApplicationController
   # GET /users/1/edit
   def edit
     if current_user == @user
-      render :edit
     else
       flash[:warning] = "Sorry, you can only edit your own profile"
       redirect_to @user
@@ -33,9 +37,9 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-
     respond_to do |format|
       if @user.save
+        login(@user)
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
@@ -77,6 +81,12 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :city)
+      city = check_city_input
+      params[:user].delete :city
+      @user_params = {}
+      @user_params = params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
+      @user_params[:city_id] = city.id
+      return @user_params
     end
+
 end

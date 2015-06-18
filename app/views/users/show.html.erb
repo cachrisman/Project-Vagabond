@@ -13,18 +13,16 @@
 
 <p>
   <strong>City:</strong>
-  <%= @user.city %>
+  <%= @user.city.try(:name) %>
 </p>
 
 <p>
   <strong>Join Date:</strong>
-  <%= @user.created_at.to_date %>
+  <%= @user.created_at.strftime("%B %d, %Y") %>
 </p>
 
 <% if current_user == @user %>
 	<%= link_to 'Edit', edit_user_path(@user) %>
 <% end %>
-
-<%= link_to 'Back', users_path %>
 
 <%= render "log_posts" %>

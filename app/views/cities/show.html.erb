@@ -1,3 +1,12 @@
 <h1><%= @city.name %></h1>
 
-<%= image_tag @image_path, {height: 300} %>
+<div id="map">
+	<iframe
+	  width="600"
+	  height="450"
+	  frameborder="0" style="border:0"
+	  src="<%= @map_url.html_safe  %>" >
+	</iframe>
+</div>
+
+<%= render "city_log_posts" %>

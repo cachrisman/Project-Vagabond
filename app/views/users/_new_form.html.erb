@@ -10,32 +10,31 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
+  <input autocomplete="false" name="hidden" type="text" style="display:none;">
+  <div class="field form-group">
     <%= f.label :first_name %><br>
     <%= f.text_field :first_name %>
   </div>
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :last_name %><br>
     <%= f.text_field :last_name %>
   </div>
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :email %><br>
     <%= f.text_field :email %>
   </div>
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :password %><br>
     <%= f.password_field :password %>
   </div>
-  <div class="field">
+  <div class="field form-group">
     <%= f.label :password_confirmation %><br>
     <%= f.password_field :password_confirmation %>
   </div>
-  <div class="field">
-    <%= f.label :city %><br>
-    <%= f.text_field :city %>
-  </div>
+  <%= render partial: "layouts/city", locals: {f: f, item:@user} %>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Sign Up", class: "btn btn-primary" %>
   </div>
 <% end %>
+
+<%= javascript_include_tag 'autocomplete', 'data-turbolinks-track' => true %>
