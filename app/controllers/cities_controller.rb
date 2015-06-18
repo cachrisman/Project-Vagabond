@@ -1,9 +1,9 @@
 class CitiesController < ApplicationController
   include CitiesHelper
-  before_filter :redirect_unauthenticated
+  #before_filter :redirect_unauthenticated, except: [:show]
 
 	def index
-  end
+        end
 
   def show
     sanitized_params = remove_dashes_city(params[:id])
