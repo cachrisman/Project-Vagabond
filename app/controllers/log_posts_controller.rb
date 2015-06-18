@@ -1,9 +1,11 @@
 class LogPostsController < ApplicationController
   before_action :set_log_post, only: [:show, :edit, :update, :destroy]
   before_filter :redirect_unauthenticated
+  include CitiesHelper
 
   def index
-    @log_posts = LogPost.all
+    return redirect_to cities_index_path if logged_in?
+    redirect_to login_path
   end
 
   def show
@@ -27,6 +29,7 @@ class LogPostsController < ApplicationController
 
   def create
     @log_post = LogPost.new(log_post_params)
+    @log_post.city = current_user.city
 
     respond_to do |format|
       if @log_post.save
@@ -73,10 +76,8 @@ class LogPostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def log_post_params
-      city = City.find_by_name(params[:log_post][:city])
-      if city == nil
-        city = City.create({name: params[:log_post][:city]})
-      end
+
+      city = check_city_input
 
       @post_params = {}
       @post_params = params.require(:log_post).permit(:title, :body, :user_id)

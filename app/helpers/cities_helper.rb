@@ -3,7 +3,7 @@ module CitiesHelper
 	def continents
 		@continents = City.all.select('continent').where.not(continent: nil).group('continent')
 	end
-	
+
 	def cities_in_continent(continent)
 		@continental_cities = City.all.where(continent: continent)
 	end
@@ -13,5 +13,13 @@ module CitiesHelper
 		return false if @city == nil
 		return true
 	end
+
+  def check_city_input
+    city = City.find_by_place_id(params[:place_id])
+    if city == nil
+      city = City.create({ name: params[:user][:city], place_id: params[:place_id], continent: params[:continent] })
+    end
+    city
+  end
 
 end
