@@ -21,8 +21,10 @@
   <%= @user.created_at.strftime("%B %d, %Y") %>
 </p>
 
-<% if current_user == @user %>
+<% if current_user != false %>
+  <% if current_user == @user %>
 	<%= link_to 'Edit', edit_user_path(@user) %>
+  <% end %>
 <% end %>
 
 <%= render "log_posts" %>
