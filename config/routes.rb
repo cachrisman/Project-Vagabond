@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   
   # get '/cities/:city_id/log_posts', to: "cities#show", as: "city_log_posts"
   resources :log_posts
+  put '/users/:id/follow', to: 'users#follow', as: 'user_follow'
   resources :users
 
 

@@ -60,6 +60,19 @@ class UsersController < ApplicationController
     end
   end
 
+  def follow
+    user = User.find(params[:id])
+    if current_user.following.include?(user)
+      current_user.following.delete(user)
+    else
+      current_user.following << user
+    end
+    if request.xhr?
+      head :ok
+    end
+    redirect_to user_path(current_user) and return
+  end
+  
   # DELETE /users/1
   # DELETE /users/1.json
   def destroy

@@ -36,4 +36,11 @@
   </ul>
 <% end %>
 
+<% if current_user != false %>
+  <% if current_user != @user %>
+    <%= link_to "Follow", "/users/#{@user.id}/follow", class: 'follow', method: :put, remote: true %>
+  <% end %>
+<% end %>
+<br />
+
 <%= render "log_posts" %>
