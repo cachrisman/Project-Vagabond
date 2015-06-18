@@ -27,5 +27,3 @@
 <% if current_user.id == @log_post.user_id %>
 	<%= link_to 'Edit', edit_log_post_path(@log_post) %>
 <% end %>
-
-<%= link_to 'Back', log_posts_path %>
