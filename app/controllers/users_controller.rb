@@ -11,13 +11,9 @@ class UsersController < ApplicationController
   end
 
   def show
-
     @user = User.find(params[:id])
-    @log_posts = @user.log_posts.limit(10)
     @log_post_limit = 10
-
-      render :show
-
+    @log_posts = @user.log_posts.limit(@log_post_limit)
   end
 
   # GET /users/new
